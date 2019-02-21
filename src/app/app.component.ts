@@ -13,7 +13,7 @@ import { pipe } from '@angular/core/src/render3/pipe';
 export class AppComponent implements OnInit{
 
   constructor(private router:Router,
-              private ActivatedRoute: ActivatedRoute, 
+              private activatedRoute: ActivatedRoute, 
               private titleService: Title) {
 
   }
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
-      .pipe(map(() => this.ActivatedRoute))
+      .pipe(map(() => this.activatedRoute))
       .pipe(map(route => {
         while(route.firstChild) route = route.firstChild;
         return route;
